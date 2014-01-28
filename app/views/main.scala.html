@@ -6,25 +6,69 @@
     <title>@title</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel='shortcut icon' type='image/vnd.microsoft.icon' href='@routes.Assets.at("images/favicon.ico")'>
-    <link rel='stylesheet' href='@routes.WebJarAssets.at(WebJarAssets.locate("bootstrap.min.css"))'>
     <link rel='stylesheet' href='@routes.Assets.at("stylesheets/index.css")'>
     <link rel='stylesheet' href='@routes.Assets.at("reveal.js/css/reveal.css")'>
+    <link rel='stylesheet' href='@routes.Assets.at("bootstrap/css/bootstrap.min.css")'>
+    <link rel='stylesheet' href='@routes.Assets.at("bootstrap/css/bootstrap-theme.min.css")'>
+    <link rel='stylesheet' href='@routes.Assets.at("reveal.js.add-on/css/add-on.css")'>
     <link rel='stylesheet' href='@routes.Assets.at("reveal.js/css/theme/default.css")' id='theme'>
     <link rel='stylesheet' href='@routes.Assets.at("reveal.js/lib/css/zenburn.css")'>
     <script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("jquery.min.js"))'></script>
+    <script type='text/javascript' src='@routes.Assets.at("bootstrap/js/bootstrap.min.js")'></script>
     <script type="text/javascript" src="@routes.MessageController.javascriptRoutes"></script>
+
 </head>
 <body>
-
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container-fluid">
-                <a id="titleLink" class="brand" href="/">@title</a>
+    <div class="containeºr">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">KUPCH</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="container-fluid">
+                    <ul class="nav navbar-nav">
+                        <li id="li-top"><a href="#">Home</a></li>
+                        <li id="li-about"><a href="#/0/1">About</a></li>
+                        <li id="li-redmine"><a href="#/1">Redmine</a></li>
+                        <li id="li-jenkins"><a href="#/2">Jenkins</a></li>
+                        <li id="li-owncloud"><a href="#/3">OwnCloud</a></li>
+                        <li id="li-links"><a href="#/4">Links</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-    <!--<div class="container">-->
-        <!--@content-->
-    <!--</div>-->
+
+@content
+<script>
+    $(function() {
+        $(".header").click(function(){
+            $(".navbar").hide();
+        });
+        $(document).on("click", ".close", function(e){
+            $(".navbar").show();
+        });
+        $(document).on("click", ".external", function(e){
+            $(".navbar").show();
+        });
+    });
+    $(window).load(function() {
+        pageSpay();
+    });
+    Reveal.addEventListener( 'slidechanged', function( event ) {
+        pageSpay();
+    });
+    function pageSpay(){
+        $('ul.nav > li').removeClass("active");
+        var page = '#li-' + $(Reveal.getCurrentSlide()).attr('id');
+        $(page).addClass("active");
+    };
+</script>
 </body>
 </html>

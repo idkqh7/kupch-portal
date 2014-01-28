@@ -5,41 +5,23 @@
     <!--<script type='text/javascript' src='@routes.Assets.at("javascripts/index.min.js")'></script>-->
 
 <div class="reveal">
-
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
-        <section data-state="cobalt">
+        <section data-state="cobalt" class="top">
             @top()
         </section>
-
-        <section data-markdown><script type="text/template">
-            [Redmine](https://www.kupch.com/redmine)
-            --------
-
-            <object type="text/html" data="https://www.kupch.com/redmine" width="100%" height="500em">
-                <p>non object</p>
-            </object>
-
-        </script></section>
-
-        <section data-markdown><script type="text/template">
-            [Jenkins](https://www.kupch.com/jenkins)
-            --------
-
-            <object type="text/html" data="https://www.kupch.com/jenkins" width="100%" height="500em">
-                <p>non object</p>
-            </object>
-        </script></section>
-
-        <section data-markdown><script type="text/template">
-            [OwnCloud](https://www.kupch.com/owncloud)
-            --------
-
-            <object type="text/html" data="https://www.kupch.com/owncloud" width="100%" height="500em">
-                <p>non object</p>
-            </object>
-        </script></section>
-
+        <section id="redmine" >
+            <h2 class="header"><a href="https://www.kupch.com/redmine">Redmine</a></h2>
+            <iframe src="https://www.kupch.com/redmine" class="embed-frame"></iframe>
+        </section>
+        <section id="jenkins">
+            <h2 class="header"><a href="https://www.kupch.com/jenkins">Jenkins</a></h2>
+            <iframe src="https://www.kupch.com/jenkins" class="embed-frame"></iframe>
+        </section>
+        <section id="owncloud">
+            <h2 class="header"><a href="https://www.kupch.com/owncloud">OwnCloud</a></h2>
+            <iframe src="https://www.kupch.com/owncloud" class="embed-frame"></iframe>
+        </section>
         <section>
             @links()
         </section>
@@ -58,6 +40,7 @@
         progress: true,
         history: true,
         loop: true,
+        previewLinks: true,
 
         theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
         transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
@@ -73,5 +56,4 @@
         ]
     });
 </script>
-
 }
