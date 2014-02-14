@@ -1,7 +1,7 @@
-@(message: String)
+@(contents: Array[MainController.Contents])
 @import pages._
 
-@main("Kanazawa University Programming Circle HOGEHOGE (KUPCH)") {
+@main("Kanazawa University Programming Circle HOGEHOGE (KUPCH)", contents) {
     <!--<script type='text/javascript' src='@routes.Assets.at("javascripts/index.min.js")'></script>-->
 
 <div class="reveal">
@@ -10,22 +10,9 @@
         <section data-state="cobalt" class="top">
             @top()
         </section>
-        <section id="redmine" >
-            <h1 class="preview"><a href="https://www.kupch.com/redmine">Redmine</a></h1>
-            <iframe src="https://www.kupch.com/redmine" class="embed-frame"></iframe>
-        </section>
-        <section id="jenkins">
-            <h1 class="preview"><a href="https://www.kupch.com/jenkins">Jenkins</a></h1>
-            <iframe src="https://www.kupch.com/jenkins" class="embed-frame"></iframe>
-        </section>
-        <section id="owncloud">
-            <h1 class="preview"><a href="https://www.kupch.com/owncloud">OwnCloud</a></h1>
-            <iframe src="https://www.kupch.com/owncloud" class="embed-frame"></iframe>
-        </section>
-        <section id="ipython">
-            <h1 class="preview"><a href="https://www.kupch.com/ipython">iPython</a></h1>
-            <iframe src="https://www.kupch.com/ipython" class="embed-frame"></iframe>
-        </section>
+        @for(content <- contents) {
+            @contentIframe(content.id)
+        }
         <section>
             @links()
         </section>
