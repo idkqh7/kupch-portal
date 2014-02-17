@@ -50,7 +50,7 @@
     });
     Reveal.addEventListener( 'slidechanged', function( event ) {
         var name = pageSpay();
-        if (name == 'links'){
+        if (name.indexOf("link") != -1){
             Reveal.configure({ previewLinks: false });
             $(".preview").hide();
         } else {
