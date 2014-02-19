@@ -20,8 +20,11 @@ libraryDependencies ++= Seq(
   // "group" % "artifact" % "version"
 )
 
-findbugsIncludeFilters := Some(
-<FindBugsFilter>
+play.Project.playScalaSettings
+
+findbugsSettings
+
+findbugsIncludeFilters := Some(<FindBugsFilter>
   <Match>
     <Bug category="MALICIOUS_CODE"/>
   </Match>
@@ -72,7 +75,4 @@ findbugsIncludeFilters := Some(
   </Match>
 </FindBugsFilter>)
 
-play.Project.playScalaSettings
-
-findbugsSettings
 
