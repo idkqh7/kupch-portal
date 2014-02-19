@@ -14,7 +14,8 @@ object MainController extends Controller {
     ("redmine", "Redmine" ,""),
     ("jenkins", "Jenkins", ""),
     ("ipython", "iPython", "ipython/notebooks/console.ipynb"),
-    ("owncloud", "OwnCloud", "")
+    ("owncloud", "OwnCloud", ""),
+    ("tinkerer", "Blog", "")
   )
   def index() = Action {
     Ok(views.html.index(contents))
