@@ -1,0 +1,42 @@
+@(contents: Array[MainController.Contents])
+<div class="container">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">KUPCH</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li id="li-top"><a href="#">Home</a></li>
+                    <li id="li-about"><a href="#/0/1">About</a></li>
+                    @for((content,i) <- contents.zipWithIndex) {
+                    <li id="li-@content.id"><a href="#/@(i+1)">@content.name</a></li>
+                    }
+                    @defining(contents.length+1){ c =>
+                    <li id="li-link-main"><a href="#/@c">Links</a></li>
+                    <li id="li-link-compile"><a href="#/@(c+1)">CompileOnline</a></li>
+                    }
+                    <li>
+                        <form action="http://www.google.com/cse" id="cse-search-box" target="_blank" class="navbar-form navbar-left" role="search">>
+                            <div class="form-group">
+                                <input type="hidden" name="cx" value="009383489223497490349:ligfx77peru" />
+                                <input type="hidden" name="ie" value="UTF-8" />
+                                <input type="hidden" name="q"/>
+                                <input type="text" name="q" class="form-control" placeholder="Search Repositories">
+                            </div>
+                            <button type="submit" name="sa" class="btn btn-default">Search</button>
+                        </form>
+                        <script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=ja"></script>
+                    </li>
+                </ul>
+                @tools()
+            </div>
+        </div>
+    </div>
+</div>

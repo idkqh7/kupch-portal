@@ -1,0 +1,12 @@
+@(content: MainController.Contents)
+@defining(
+    if (content.url.isEmpty) {
+        content.id
+    } else {
+        content.url
+}) {url =>
+<section id="@content.id" >
+    <h1 class="preview"><a href="https://www.kupch.com/@url">@content.id</a></h1>
+    <iframe class="embed-frame" src="https://www.kupch.com/@url" sandbox="allow-same-origin allow-forms allow-scripts"></iframe>
+</section>
+}
