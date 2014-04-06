@@ -2,9 +2,7 @@ package controllers
 
 import play.api.mvc.{Action, Controller}
 
-
-object MainController extends Controller {
-
+object Application extends Controller {
   case class Contents(id: String, name:String, url:String)
   implicit def set(combined: (String, String, String)): Contents = combined match {
     case (id, name, url) => Contents(id, name, url)
@@ -20,5 +18,4 @@ object MainController extends Controller {
   def index() = Action {
     Ok(views.html.index(contents))
   }
-
 }
