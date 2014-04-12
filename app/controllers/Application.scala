@@ -13,7 +13,7 @@ object Application extends Controller {
     ("jenkins", "Jenkins", ""),
     ("ipython", "iPython", "ipython/notebooks/console.ipynb"),
     ("owncloud", "OwnCloud", ""),
-    ("wordpress", "Blog", "")
+    ("octopress", "Blog", "")
   )
   def index() = Action {
     Ok(views.html.index(contents))
